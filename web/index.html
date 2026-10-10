@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/lib/bootstrap.min.css" inline>
+    <link rel="stylesheet" href="./css/style.css" inline>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row my-3">
+      </div>
+      <div class="row py-2">
+          <div class="col-md-6 py-1">
+            <canvas id="canvas"></canvas>
+          </div>
+          <div class="col-md-3 py-1">
+            <div id="g_power" class="gauge"></div>
+            <div id="g_voltage" class="gauge"></div>
+            <div id="g_current" class="gauge"></div> 
+          </div>
+          <div class="col-md-3 py-1">
+            <div id="g_bvoltage" class="gauge"></div>
+            <div id="g_bcurrent" class="gauge"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row my-3">
+        <div class="col">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Today</th>
+                <th scope="col">Month</th>
+                <th scope="col">Year</th>
+                <th scope="col">Lifetime</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="gen_today">-</td>
+                <td id="gen_month">-</td>
+                <td id="gen_year">-</td>
+                <td id="gen_total">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row my-3">
+        <div class="col">
+          <p><a href="https://www.snektek.com/">SnekTek.com</a> Solar Dashboard Software V 0.9.2</p>
+          <p><a href="https://www.snektek.com/forum/viewtopic.php?f=3&t=48">Project Updates</a></p>
+          <p><a href="https://bitbucket.org/jonathangoldnauvogt/epever_solar_display/src/master/README.md">Software and Updating Help</a></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/lib/jquery-3.4.0.min.js" inline></script>
+    <script src="./js/lib/bootstrap.min.js" inline></script>
+    <script src="./js/lib/moment.min.js" inline></script> 
+    <script src="./js/lib/Chart.min.js" inline></script> 
+    <script src="./js/lib/raphael-2.1.4.min.js" inline></script>
+    <script src="./js/lib/justgage.js" inline></script>
+    <script src="./js/hist_chart.js" inline></script>
+    <script src="./js/curr_gauge.js" inline></script>
+    <script src="./js/script.js" inline></script>
+  </body>
+</html>

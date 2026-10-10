@@ -1,0 +1,24 @@
+# This is a sample build configuration for Other.
+# Check our guides at https://confluence.atlassian.com/x/5Q4SMw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: amente/embedded-toolchain-docker:1.0
+
+clone:
+  depth: 1
+  
+pipelines:
+  default:
+     - step:
+        script:
+          - DATE=`date '+%Y-%m-%d-%H-%M'`
+          - SHORT_COMMIT_HASH=`echo ${BITBUCKET_COMMIT} | cut -c1-6`
+          - ARTIFACT_NAME=epever-solar-display-${BITBUCKET_BRANCH}-${SHORT_COMMIT_HASH}-${DATE}
+          - mkdir ${ARTIFACT_NAME}
+          - pio run
+          - cp .pio/build/nodemcuv2/firmware.bin "${ARTIFACT_NAME}"
+          - pio run -t buildfs
+          - cp .pio/build/nodemcuv2/spiffs.bin "${ARTIFACT_NAME}"
+          - zip -r "${ARTIFACT_NAME}.zip" "${ARTIFACT_NAME}"
+          - curl -X POST "https://${BB_AUTH_STRING}@api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}/downloads" --form files=@"${ARTIFACT_NAME}.zip" 

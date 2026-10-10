@@ -1,0 +1,27 @@
+  body {
+    background-color: #0d0d0d;
+    color: white;
+  }
+  canvas{
+  width: 100%;
+  }
+  .chart{
+  }
+
+  .gauge {
+    width:auto;
+    height: auto;
+  }
+
+  .table{
+    color: #d9d9d9;
+  }
+
+  a:link.button,
+  a:active.button,
+  a:visited.button,
+  a:hover.button {
+    margin: 30px 5px 0 2px;
+    padding: 7px 13px;
+  
+  
